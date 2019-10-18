@@ -1,0 +1,63 @@
+@import 'nord.less';
+
+body {
+    font-family: Segoe UI, Poppins;
+    background-color: @nord0;
+    color: @nord6;
+    user-select: none;
+
+    input, select, option{
+        display: block;
+        margin: 0.5em auto;
+        padding: 0.5em;
+        width: 15em;
+        box-sizing: border-box;
+    }
+
+    main {
+        padding: 0 1em;
+    }
+
+    #page-title {
+        text-align: center;
+    }
+
+    #subject-name {
+        text-align: center;
+    }
+
+    #range-span {
+        display: block;
+        text-align: center;
+        input {
+            display: inline;
+            width: 7em;
+        }
+    }
+
+    #error-msg {
+        text-align: center;
+    }
+
+    .course-block {
+        border: 1px solid @nord14;
+        margin: 2em auto;
+        padding: 0.5em;
+        width: 50%;
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .remove-course {
+            float: right;
+            margin-right: 1em;
+            cursor: pointer;
+        }
+
+        .course-title {
+            cursor: pointer;
+        }
+    }
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<% include ../partials/head %>
+</head>
+<body>
+
+	<header>
+		<% include ../partials/header %>
+	</header>
+
+	<main>
+		<h2 id='page-title'>UW courses</h2>
+		<div>
+			<input id='course-search' placeholder='Search for a course' type="text">
+			<select id='subject-select'>
+				<option disabled selected="selected">Search by subject</option>
+				<option value="MATH">MATH</option>
+				<option value="CS">CS</option>
+				<option value="AFM">AFM</option>
+				<option value="ECON">ECON</option>
+			</select>
+			<span id='range-span'>
+				<input min='100' max='999' class='range-input' id='lower-bound' type='number'>
+				-
+				<input min='100' max='999' class='range-input' id='upper-bound' type='number'>
+			</span>
+		</div>
+
+		<div id='course-display'>
+			<% include ../partials/courses %>
+		</div>
+	</main>
+
+	<footer>
+		<% include ../partials/footer %>
+	</footer>
+	
+</body>
+<script src='../js/requests.js'></script>
+<script src='../js/events.js'></script>
+</html>
