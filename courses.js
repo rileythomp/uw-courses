@@ -37,6 +37,14 @@ exports.search_by_course = (data, res) => {
 	let subject = data.subject;
 	let catalog_number = data.catalog_number;
 
+	if (catalog_number == undefined) {
+		this.search_by_subject({
+			subject: subject,
+			lower_bound: 100,
+			upper_bound: 999
+		}, res, 'partials/courses');
+	}
+
 	uw_api.courses({subject: subject, catalog_number: catalog_number}, {}).
 	then((response) => {
 		if (Object.keys(response).length == 0) {

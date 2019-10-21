@@ -1,10 +1,10 @@
 <h3 id='subject-name'><%= subject %></h3>
 <% courses.forEach(function(course) { %>
     <div class='course-block'>
-        <p><a target='blank' href='<%= course.link %>' class='course-title'><%= course.subject %> <%= course.catalog_number %></a> <i class='fa fa-times remove-course'></i></p>
-        <p><%= course.title %></p>
-        <p>Units: <%= course.units %></p>
+        <p><a target='blank' href='<%= course.link %>' class='course-code'><%= course.subject %> <%= course.catalog_number %> - <%= course.title %></a> <i class='fa fa-times remove-course'></i></p>
+        
         <p><%= course.description %></p>
+        <p>Units: <%= course.units %></p>
     </div>
 <% }); %>
 

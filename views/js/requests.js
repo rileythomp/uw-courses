@@ -1,8 +1,97 @@
 const subjects = [
-    'MATH',
+    'AFM',
+    'ACTSC',
+    'ANTH',
+    'AHS',
+    'APPLS',
+    'AMATH',
+    'ARCH',
+    'ARTS',
+    'ARBUS',
+    'AVIA',
+    'BIOL',
+    'BME',
+    'BET',
+    'CDNST',
+    'CHE',
+    'CHEM',
+    'CMW',
+    'CIVE',
+    'CLAS',
+    'COGSCI',
+    'CO',
+    'COMMM',
     'CS',
+    'COOP',
+    'CROAT',
+    'DAC',
+    'DUTCH',
+    'EARTH',
     'ECON',
-    'AFM'
+    'ECE',
+    'ENGL',
+    'ENBUS',
+    'ERS',
+    'ENVE',
+    'ENVS',
+    'FINE',
+    'FR',
+    'GENE',
+    'GEOG',
+    'GEO',
+    'GER',
+    'GERON',
+    'GBDA',
+    'GRK',
+    'HLTH',
+    'HIST',
+    'HRM',
+    'HUMSC',
+    'INDEV',
+    'INTST',
+    'ITAL',
+    'ITALST',
+    'JS',
+    'KIN',
+    'INTEG',
+    'LAT',
+    'LS',
+    'MSCI',
+    'MNS',
+    'MATBUS',
+    'MATH',
+    'MTHEL',
+    'ME',
+    'MTE',
+    'MEDVL',
+    'MUSIC',
+    'NE',
+    'OPTOM',
+    'PACS',
+    'PHARM',
+    'PHIL',
+    'PHYS',
+    'PLAN',
+    'PSCI',
+    'PORT',
+    'PSYCH',
+    'PMATH',
+    'REC',
+    'RS',
+    'RUSS',
+    'REES',
+    'SCI',
+    'SCBUS',
+    'SMF',
+    'STVV',
+    'SOC',
+    'SE',
+    'SPAN',
+    'SPCOM',
+    'STAT',
+    'SYDE',
+    'UNIV',
+    'VCULT'
 ];
 
 function courses_by_subject(subject, lower_bound, upper_bound) {
@@ -22,7 +111,7 @@ function courses_by_subject(subject, lower_bound, upper_bound) {
             })
         },
         error: function(jqXHR, textStatus, err) {
-            console.error("Error: ", jqXHR.status, jqXHR.responseText, textStatus, err);
+            console.error('Error:',  jqXHR.status, jqXHR.responseText, textStatus, err);
         }
     })
 }
@@ -55,8 +144,8 @@ function get_search_data(search) {
 function course_by_search(search) {
     let search_data = get_search_data(search);
 
-    if (search_data.subject == undefined || search_data.catalog_number == undefined) {
-        $('#course-display').html('<h3 id="error-msg">Sorry, no courses matched your search');
+    if (search_data.subject == undefined) {
+        $('#course-display').html('<h3 id="error-msg">Sorry, no courses matched your search</h3>');
         return
     }
 
@@ -72,7 +161,7 @@ function course_by_search(search) {
             })
         },
         error: function(jqXHR, textStatus, err) {
-            console.error("Error: ", jqXHR.status, jqXHR.responseText, textStatus, err);
+            console.error('Error:',  jqXHR.status, jqXHR.responseText, textStatus, err);
         }
     })
 }

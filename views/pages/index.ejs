@@ -1,24 +1,111 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 <head>
 	<% include ../partials/head %>
 </head>
 <body>
-
 	<header>
 		<% include ../partials/header %>
 	</header>
-
 	<main>
-		<h2 id='page-title'>UW courses</h2>
+		<h2 id='page-title'>UWaterloo Courses</h2>
 		<div>
-			<input id='course-search' placeholder='Search for a course' type="text">
+			<input id='course-search' placeholder='Search for a course' type='text'>
 			<select id='subject-select'>
-				<option disabled selected="selected">Search by subject</option>
-				<option value="MATH">MATH</option>
-				<option value="CS">CS</option>
-				<option value="AFM">AFM</option>
-				<option value="ECON">ECON</option>
+				<option disabled selected='selected'>Search by subject</option>
+				<option value='AFM'>AFM</option>
+				<option value='ACTSC'>ACTSC</option>
+				<option value='ANTH'>ANTH</option>
+				<option value='AHS'>AHS</option>
+				<option value='APPLS'>APPLS</option>
+				<option value='AMATH'>AMATH</option>
+				<option value='ARCH'>ARCH</option>
+				<option value='ARTS'>ARTS</option>
+				<option value='ARBUS'>ARBUS</option>
+				<option value='AVIA'>AVIA</option>
+				<option value='BIOL'>BIOL</option>
+				<option value='BME'>BME</option>
+				<option value='BET'>BET</option>
+				<option value='CDNST'>CDNST</option>
+				<option value='CHE'>CHE</option>
+				<option value='CHEM'>CHEM</option>
+				<option value='CMW'>CMW</option>
+				<option value='CIVE'>CIVE</option>
+				<option value='CLAS'>CLAS</option>
+				<option value='COGSCI'>COGSCI</option>
+				<option value='CO'>CO</option>
+				<option value='COMM'>COMM</option>
+				<option value='CS'>CS</option>
+				<option value='COOP'>COOP</option>
+				<option value='CROAT'>CROAT</option>
+				<option value='DAC'>DAC</option>
+				<option value='DUTCH'>DUTCH</option>
+				<option value='EARTH'>EARTH</option>
+				<option value='ECON'>ECON</option>
+				<option value='ECE'>ECE</option>
+				<option value='ENGL'>ENGL</option>
+				<option value='ENBUS'>ENBUS</option>
+				<option value='ERS'>ERS</option>
+				<option value='ENVE'>ENVE</option>
+				<option value='ENVS'>ENVS</option>
+				<option value='FINE'>FINE</option>
+				<option value='FR'>FR</option>
+				<option value='GENE'>GENE</option>
+				<option value='GEOG'>GEOG</option>
+				<option value='GEOE'>GEOE</option>
+				<option value='GER'>GER</option>
+				<option value='GERON'>GERON</option>
+				<option value='GBDA'>GBDA</option>
+				<option value='GRK'>GRK</option>
+				<option value='HLTH'>HLTH</option>
+				<option value='HIST'>HIST</option>
+				<option value='HRM'>HRM</option>
+				<option value='HUMSC'>HUMSC</option>
+				<option value='INDEV'>INDEV</option>
+				<option value='INTST'>INTST</option>
+				<option value='ITAL'>ITAL</option>
+				<option value='ITALST'>ITALST</option>
+				<option value='JS'>JS</option>
+				<option value='KIN'>KIN</option>
+				<option value='INTEG'>INTEG</option>
+				<option value='LAT'>LAT</option>
+				<option value='LS'>LS</option>
+				<option value='MSCI'>MSCI</option>
+				<option value='MNS'>MNS</option>
+				<option value='MATBUS'>MATBUS</option>
+				<option value='MATH'>MATH</option>
+				<option value='MTHEL'>MTHEL</option>
+				<option value='ME'>ME</option>
+				<option value='MTE'>MTE</option>
+				<option value='MEDVL'>MEDVL</option>
+				<option value='MUSIC'>MUSIC</option>
+				<option value='NE'>NE</option>
+				<option value='OPTOM'>OPTOM</option>
+				<option value='PACS'>PACS</option>
+				<option value='PHARM'>PHARM</option>
+				<option value='PHIL'>PHIL</option>
+				<option value='PHYS'>PHYS</option>
+				<option value='PLAN'>PLAN</option>
+				<option value='PSCI'>PSCI</option>
+				<option value='PORT'>PORT</option>
+				<option value='PSYCH'>PSYCH</option>
+				<option value='PMATH'>PMATH</option>
+				<option value='REC'>REC</option>
+				<option value='RS'>RS</option>
+				<option value='RUSS'>RUSS</option>
+				<option value='REES'>REES</option>
+				<option value='SCI'>SCI</option>
+				<option value='SCBUS'>SCBUS</option>
+				<option value='SMF'>SMF</option>
+				<option value='STV'>STV</option>
+				<option value='SOC'>SOC</option>
+				<option value='SE'>SE</option>
+				<option value='SPAN'>SPAN</option>
+				<option value='SPCOM'>SPCOM</option>
+				<option value='STAT'>STAT</option>
+				<option value='SYDE'>SYDE</option>
+				<option value='UNIV'>UNIV</option>
+				<option value='VCULT'>VCULT</option>
 			</select>
 			<span id='range-span'>
 				<input min='100' max='999' class='range-input' id='lower-bound' type='number'>
@@ -26,16 +113,13 @@
 				<input min='100' max='999' class='range-input' id='upper-bound' type='number'>
 			</span>
 		</div>
-
 		<div id='course-display'>
 			<% include ../partials/courses %>
 		</div>
 	</main>
-
 	<footer>
 		<% include ../partials/footer %>
 	</footer>
-	
 </body>
 <script src='../js/requests.js'></script>
 <script src='../js/events.js'></script>
