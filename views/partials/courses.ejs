@@ -4,6 +4,8 @@
         <p><a target='blank' href='<%= course.link %>' class='course-code'><%= course.subject %> <%= course.catalog_number %> - <%= course.title %></a> <i class='fa fa-times remove-course'></i></p>
         
         <p><%= course.description %></p>
+        <p><%= course.prereq %></p>
+        <p><%= course.antireq %></p>
         <p>Units: <%= course.units %></p>
     </div>
 <% }); %>
