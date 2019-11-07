@@ -4,8 +4,11 @@
         <p><a target='blank' href='<%= course.link %>' class='course-code'><%= course.subject %> <%= course.catalog_number %> - <%= course.title %></a> <i class='fa fa-times remove-course'></i></p>
         
         <p><%= course.description %></p>
-        <p><%= course.prereq %></p>
-        <p><%= course.antireq %></p>
+        <p><%= course.notes %></p>
+        <p><%= course.prerequisites %></p>
+        <p><%= course.antirequisites %></p>
+        <p><%= course.corequisites %></p>
+        <p><%= course.crosslistings %></p>
         <p>Units: <%= course.units %></p>
     </div>
 <% }); %>

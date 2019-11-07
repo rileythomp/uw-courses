@@ -39,28 +39,42 @@ exports.search_by_subject = (data, res, view_path) => {
                 let api_course = course.subject + ' ' + course.catalog_number;
 
                 if (parseInt(course.catalog_number) >= lower_bound && parseInt(course.catalog_number) <= upper_bound) {
-                    course.prereq = '';
-                    course.antireq = '';
                     if (scraped_course != undefined && scraped_course.includes(api_course)) {
-                        // console.log("scraped: ", scraped_course, " api: ", api_course);       
                         for (let k = 0; k < results[j].children.length; ++k) {
-                            if (results[j].children[k].firstChild.firstChild.firstChild != undefined && results[j].children[k].firstChild.firstChild.firstChild.data != undefined) {
-                                if (results[j].children[k].firstChild.firstChild.firstChild.data.includes('Prereq')) {
-                                    course.prereq = results[j].children[k].firstChild.firstChild.firstChild.data.split(',').join(', ');
-                                } else if (results[j].children[k].firstChild.firstChild.firstChild.data.includes('Antireq')) {
-                                    course.antireq = results[j].children[k].firstChild.firstChild.firstChild.data.split(',').join(', ');
-                                }
-                            }
-                        }
-                        j += 1;     
+							let course_part = results[j].children[k].firstChild.firstChild.firstChild;
 
-                        course.link = `http://www.ucalendar.uwaterloo.ca/1920/COURSE/course-${subject}.html#${subject}${course.catalog_number}`;
-                        courses.push(course);
-                    } else {
-                        // console.log("api: ", api_course);              
-                        course.link = `http://www.ucalendar.uwaterloo.ca/1920/COURSE/course-${subject}.html#${subject}${course.catalog_number}`;
-                        courses.push(course);
+							if (course_part == undefined || course_part.data == undefined) {
+								continue;
+							}
+
+							if (course_part.data.includes('Note:')) {
+								course.notes = course_part.data.substring(1, course_part.data.length - 1);
+								let sentences = course.notes.split('.');
+
+								let first_sentence = sentences[0].toLowerCase();
+
+								if (first_sentence.includes('see note')) {
+									sentences[0] = 'Note:'
+								}
+
+								course.notes = sentences.join('.');
+								course.notes = course.notes.replace(':.', ':');
+							}
+							if (course_part.data.includes('Prereq:')) {
+								course.prerequisites = course_part.data.split(',').join(', ');
+							} else if (course_part.data.includes('Antireq:')) {
+								course.antirequisites = course_part.data.split(',').join(', ');
+							} else if (course_part.data.includes('Coreq:')) {
+								course.corequisites = course_part.data.split(',').join(', ');
+							} else if (course_part.data.includes('Cross-listed')) {
+								course.crosslistings = course_part.data.substring(1, course_part.data.length - 1);
+							}
+						}
+						
+                        j += 1;     
                     }
+					course.link = `http://www.ucalendar.uwaterloo.ca/1920/COURSE/course-${subject}.html#${subject}${course.catalog_number}`;
+					courses.push(course);
                 }
             }
     
@@ -95,6 +109,35 @@ exports.search_by_course = (data, res) => {
 			})
 			return;
 		}
+
+		if (response.notes != null) {
+			response.notes = response.notes.substring(1, course_part.data.length - 1);
+			let sentences = response.notes.split('.');
+
+			let first_sentence = sentences[0].toLowerCase();
+
+			if (first_sentence.includes('see note')) {
+				sentences.shift();
+			}
+
+			response.notes = sentences.join('.');
+			response.notes = response.notes.replace(':.', ':');
+		}
+		if (response.prerequisites != null) {
+			response.prerequisites = `Prereq: ${response.prerequisites}`;
+		}
+		if (response.antirequisites != null) {
+			response.antirequisites = `Antireq: ${response.antirequisites}`;
+		}
+		if (response.corequisites != null) {
+			response.corequisites = `Coreq: ${response.corequisites}`;
+		}
+		if (response.crosslistings != null) {
+			response.crosslistings = `Crosslisted with ${response.crosslistings}`
+		}
+
+		response.link = response.url;
+
 		res.render('partials/courses', {
 			subject: subject,
 			courses: [response]
