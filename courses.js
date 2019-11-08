@@ -111,7 +111,7 @@ exports.search_by_course = (data, res) => {
 		}
 
 		if (response.notes != null) {
-			response.notes = response.notes.substring(1, course_part.data.length - 1);
+			response.notes = response.notes.substring(1, response.notes.length - 1);
 			let sentences = response.notes.split('.');
 
 			let first_sentence = sentences[0].toLowerCase();
@@ -144,6 +144,6 @@ exports.search_by_course = (data, res) => {
 		})
 	}).
 	catch((err) => {
-		alert(2);
+		console.error(`Error: ${err}`);
 	})
 }

@@ -3,7 +3,6 @@
 body {
     font-family: Segoe UI, Poppins;
     background-color: #000000;
-    // background-color: @nord0;
     color: @nord6;
     user-select: none;
 
@@ -25,6 +24,7 @@ body {
 
     #subject-name {
         text-align: center;
+        margin-bottom: 0
     }
 
     #range-span {
@@ -41,10 +41,9 @@ body {
     }
 
     .course-block {
-        // border: 1px solid @nord14;
         border: 2px solid #C60078;
         margin: 2em auto;
-        padding: 0.5em;
+        padding: 0.75em 1.5em;
         width: 50%;
 
         a {
@@ -62,6 +61,21 @@ body {
             cursor: pointer;
             font-weight: bold;
             font-size: 1.25em;
+        }
+
+        p {
+            margin-top: 0.5em;
+            margin-bottom: 0.5em;
+        }
+    }
+
+    footer {
+        a {
+            position: fixed;
+            bottom: 0.5em;
+            right: 1em;
+            color: inherit;
+            font-size: 2.5em;
         }
     }
 }
