@@ -205,6 +205,12 @@ function courses_by_subject(subject, lower_bound, upper_bound) {
             $('.remove-course').on('click', function(_ev) {
                 $(this.parentElement.parentElement).fadeOut();
             })
+            $('.expand-course').on('click', function(_ev) {
+                $(this.parentElement.parentElement.children[1]).fadeIn(1000);
+                $(this.parentElement.parentElement.children[2]).fadeIn(1000);
+                $(this.parentElement.parentElement.children[6]).fadeIn(1000);
+                $(this.parentElement.parentElement.children[7]).fadeIn(1000);
+            })
             $('.course-block').css('border', '2px solid ' + subject_color[subject]);
         },
         error: function(jqXHR, textStatus, err) {
@@ -255,6 +261,12 @@ function course_by_search(search) {
             $('#course-display').html(data);
             $('.remove-course').on('click', function(_ev) {
                 $(this.parentElement.parentElement).fadeOut();
+            })
+            $('.expand-course').on('click', function(_ev) {
+                $(this.parentElement.parentElement.children[1]).fadeIn(1000);
+                $(this.parentElement.parentElement.children[2]).fadeIn(1000);
+                $(this.parentElement.parentElement.children[6]).fadeIn(1000);
+                $(this.parentElement.parentElement.children[7]).fadeIn(1000);
             })
             $('.course-block').css('border', '2px solid ' + subject_color[search_data.subject]);
         },
