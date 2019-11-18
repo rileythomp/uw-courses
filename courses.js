@@ -78,7 +78,7 @@ exports.search_by_subject = (data, res, view_path) => {
                 }
             }
     
-              res.render(view_path, {
+            res.render(view_path, {
                 subject: subject,
                 courses: courses
             })

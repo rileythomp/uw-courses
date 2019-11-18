@@ -2,6 +2,13 @@ $('.remove-course').on('click', function(_ev) {
     $(this.parentElement.parentElement).fadeOut();
 })
 
+$('.expand-course').on('click', function(_ev) {
+    $(this.parentElement.parentElement.children[1]).fadeIn(1000);
+    $(this.parentElement.parentElement.children[2]).fadeIn(1000);
+    $(this.parentElement.parentElement.children[6]).fadeIn(1000);
+    $(this.parentElement.parentElement.children[7]).fadeIn(1000);
+})
+
 $('#course-search').on('keyup', function(ev) {
     if (ev.keyCode == 13) {
         course_by_search(this.value.toUpperCase());

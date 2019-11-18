@@ -1,15 +1,15 @@
 <h3 id='subject-name'><%= subject %></h3>
 <% courses.forEach(function(course) { %>
     <div class='course-block'>
-        <p><a target='blank' href='<%= course.link %>' class='course-code'><%= course.subject %> <%= course.catalog_number %> - <%= course.title %></a> <i class='fa fa-times remove-course'></i></p>
+        <p><a target='blank' href='<%= course.link %>' class='course-code'><%= course.subject %> <%= course.catalog_number %> - <%= course.title %></a> <i class='fa fa-expand expand-course'></i> <i class='fa fa-times remove-course'></i></p>
         
-        <p><%= course.description %></p>
-        <p><%= course.notes %></p>
+        <p class='course-description'><%= course.description %></p>
+        <p class='course-notes'><%= course.notes %></p>
         <p><%= course.prerequisites %></p>
         <p><%= course.antirequisites %></p>
         <p><%= course.corequisites %></p>
-        <p><%= course.crosslistings %></p>
-        <p>Units: <%= course.units %></p>
+        <p class='course-crosslists'><%= course.crosslistings %></p>
+        <p class='course-units'>Units: <%= course.units %></p>
     </div>
 <% }); %>
 
